@@ -18,7 +18,7 @@ modules:
     build-commands:
       - install -D com.duckduckgo.mobile.android_52541000.apk /app/share/duckduckgo.apk
       - install -D duckduckgo.sh /app/bin/duckduckgo.sh
-      - install -D com.duckduckgo.mobile.android /app/share/applications/com.duckduckgo.mobile.android
+      - install -D com.duckduckgo.mobile.desktop /app/share/applications/com.duckduckgo.mobile.desktop
       - install -D logo.svg /app/share/icons/hicolor/scalable/apps/net.duckduckgo.svg
       - install -D net.duckduckgo.metainfo.xml /app/share/metainfo/net.duckduckgo.metainfo.xml
     sources:
