@@ -1,0 +1,63 @@
+app-id: com.duckduckgo.mobile.android
+runtime: org.gnome.Platform
+runtime-version: '49'
+sdk: org.gnome.Platform
+base: io.gitlab.android_translation_layer.BaseApp
+base-version: stable
+command: duckduckgo.sh
+finish-args:
+  - --share=network
+  - --share=ipc
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --device=dri
+  - --socket=pulseaudio
+modules:
+  - name: duckduckgo
+    buildsystem: simple
+    build-commands:
+      - install -D com.duckduckgo.mobile.android_52541000.apk /app/share/duckduckgo.apk
+      - install -D newpipe.sh /app/bin/newpipe.sh
+      - install -D com.duckduckgo.mobile.android /app/share/applications/com.duckduckgo.mobile.android
+      - install -D logo.svg /app/share/icons/hicolor/scalable/apps/net.duckduckgo.svg
+      - install -D net.duckduckgo.metainfo.xml /app/share/metainfo/net.duckduckgo.metainfo.xml
+    sources:
+      - type: file
+        url: https://f-droid.org/repo/com.duckduckgo.mobile.android_52541000.apk
+        sha256: 06ea3bab0f56c2cac0a7c471d43e6d0107104c319abb589c894c6b0d47d60ef7
+      - type: file
+        url: https://duckduckgo.net/img/logo.svg
+        sha256: dcbdc537ef9937225df96f97a571a5deb2e5dde021c687530b7ee165c5c67cb7
+      - type: file
+        path: duckduckgo.sh
+      - type: file
+        path: com.duckduckgo.mobile.android
+      - type: file
+        path: net.duckduckgo.metainfo.xml
+
+  - name: run-dex2oat
+    buildsystem: simple
+    build-options:
+      append-ld-library-path: /app/lib/art:/app/lib
+      arch:
+        x86_64:
+          env:
+            arch: x86_64
+        aarch64:
+          env:
+            arch: arm64
+    build-commands:
+      - mkdir -p /app/share/oat/$arch
+      - dex2oat --dex-file=/app/share/duckduckgo.apk --oat-file=/app/share/oat/$arch/duckduckgo.odex --host
+      - chmod +x /app/share/oat/$arch/duckduckgo.odex
+      - mv /app/share/duckduckgo.apk duckduckgo.apk
+      - zip -d duckduckgo.apk "classes*.dex"
+      - mv duckduckgo.apk /app/share/duckduckgo.apk
+
+  - name: remove-dex2oat
+    buildsystem: simple
+    build-commands:
+      - rm /app/lib/art/libart-compiler.so
+      - rm /app/lib/art/libart-dexlayout.so
+      - rm /app/bin/dex2oat
+      - rm /app/bin/dalvikvm
