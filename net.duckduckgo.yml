@@ -25,13 +25,13 @@ modules:
       - type: file
         url: https://f-droid.org/repo/com.duckduckgo.mobile.android_52541000.apk
         sha256: 93afce29a7558b494ac3efaf489bb876b0523ecda6b5ac8c3fc581df32c2ddec
-      - type: file
-        url: https://duckduckgo.net/img/logo.svg
-        sha256: dcbdc537ef9937225df96f97a571a5deb2e5dde021c687530b7ee165c5c67cb7
+      # - type: file
+      #   url: https://duckduckgo.net/img/logo.svg
+      #   sha256: dcbdc537ef9937225df96f97a571a5deb2e5dde021c687530b7ee165c5c67cb7
       - type: file
         path: duckduckgo.sh
       - type: file
-        path: com.duckduckgo.mobile.android
+        path: net.duckduckgo
       - type: file
         path: net.duckduckgo.metainfo.xml
 
