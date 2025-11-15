@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=duckduckgo
-Exec=newpipe.sh --uri %u
+Exec=duckduckgo.sh --uri %u
 Comment=Lightweight YouTube frontend (unofficial port)
 X-Purism-FormFactor=Workstation;Mobile;
 Icon=com.duckduckgo.mobile.android

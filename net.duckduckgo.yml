@@ -12,6 +12,7 @@ finish-args:
   - --socket=fallback-x11
   - --device=dri
   - --socket=pulseaudio
+  - --env=ANDROID_ART_DISABLE_IMAGE=1
 modules:
   - name: duckduckgo
     buildsystem: simple
