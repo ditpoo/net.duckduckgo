@@ -31,7 +31,7 @@ modules:
       - type: file
         path: duckduckgo.sh
       - type: file
-        path: net.duckduckgo
+        path: .
       - type: file
         path: net.duckduckgo.metainfo.xml
 
