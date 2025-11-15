@@ -19,7 +19,7 @@ finish-args:
   - --device=dri
   - --socket=pulseaudio
   # - --env=ANDROID_ART_DISABLE_IMAGE=1
-  - --env=ANDROID_ART_NO_DEX2OAT=1
+  # - --env=ANDROID_ART_NO_DEX2OAT=1
   - --env=ANDROID_ART_IMAGE=0
   - --env=ANDROID_ART_USE_OPTIMIZING_COMPILER=false
   - --env=ANDROID_ART_USE_JIT=true    # o
@@ -63,11 +63,12 @@ modules:
       # - chmod -R u+rw /app/
       - export ANDROID_ART_CACHE=/run/art-cache
       # - export ANDROID_ART_DISABLE_IMAGE=1
-      - export ANDROID_ART_NO_DEX2OAT=0
+      # - export ANDROID_ART_NO_DEX2OAT=0
       - export ANDROID_ART_IMAGE=0
       - export DEX2OAT_IMAGE_LOCATION=/run/art-cache
       - export DEX2OAT_IMAGE_LOCATION=/run/art-cache
-      - dex2oat --dex-file=/app/share/duckduckgo.apk --oat-file=app/share/oat/$arch/duckduckgo.odex --host --instruction-set=x86_64 --boot-image= 
+      - ls /app/share/
+      - dex2oat --dex-file=/app/share/duckduckgo.apk --oat-file=/app/share/oat/$arch/duckduckgo.odex --host --instruction-set=x86_64 --boot-image= 
       - chmod +x /app/share/oat/$arch/duckduckgo.odex
       - mv /app/share/duckduckgo.apk duckduckgo.apk
       - zip -d duckduckgo.apk "classes*.dex"
