@@ -24,7 +24,7 @@ modules:
     sources:
       - type: file
         url: https://f-droid.org/repo/com.duckduckgo.mobile.android_52541000.apk
-        sha256: 06ea3bab0f56c2cac0a7c471d43e6d0107104c319abb589c894c6b0d47d60ef7
+        sha256: 93afce29a7558b494ac3efaf489bb876b0523ecda6b5ac8c3fc581df32c2ddec
       - type: file
         url: https://duckduckgo.net/img/logo.svg
         sha256: dcbdc537ef9937225df96f97a571a5deb2e5dde021c687530b7ee165c5c67cb7
