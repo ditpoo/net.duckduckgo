@@ -19,7 +19,7 @@ modules:
       - install -D com.duckduckgo.mobile.android_52541000.apk /app/share/duckduckgo.apk
       - install -D duckduckgo.sh /app/bin/duckduckgo.sh
       - install -D net.duckduckgo.desktop /app/share/applications/net.duckduckgo.desktop
-      - install -D logo.svg /app/share/icons/hicolor/scalable/apps/net.duckduckgo.svg
+      # - install -D logo.svg /app/share/icons/hicolor/scalable/apps/net.duckduckgo.svg
       - install -D net.duckduckgo.metainfo.xml /app/share/metainfo/net.duckduckgo.metainfo.xml
     sources:
       - type: file
