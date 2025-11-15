@@ -60,7 +60,11 @@ modules:
             arch: arm64
     build-commands:
       - mkdir -p /app/share/oat/$arch
-      - dex2oat --dex-file=/app/share/duckduckgo.apk --oat-file=/app/share/oat/$arch/duckduckgo.odex --host --instruction-set=x86_64 --boot-image=
+      - export ANDROID_ART_CACHE=/run/art-cache
+      - export ANDROID_ART_DISABLE_IMAGE=1
+      - export ANDROID_ART_NO_DEX2OAT=0
+      - export ANDROID_ART_IMAGE=0
+      - dex2oat --dex-file=/app/share/duckduckgo.apk --oat-file=/app/share/oat/$arch/duckduckgo.odex --host --instruction-set=x86_64 --boot-image= 
       - chmod +x /app/share/oat/$arch/duckduckgo.odex
       - mv /app/share/duckduckgo.apk duckduckgo.apk
       - zip -d duckduckgo.apk "classes*.dex"
