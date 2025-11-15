@@ -10,6 +10,7 @@ environment:
   ANDROID_ART_NO_DEX2OAT: "1"
   ANDROID_ART_IMAGE: "0"
   ANDROID_ART_USE_OPTIMIZING_COMPILER: "false"
+  ANDROID_ART_CACHE: /run/art-cache
 finish-args:
   - --share=network
   - --share=ipc
@@ -22,6 +23,7 @@ finish-args:
   - --env=ANDROID_ART_IMAGE=0
   - --env=ANDROID_ART_USE_OPTIMIZING_COMPILER=false
   - --env=ANDROID_ART_USE_JIT=true    # o
+  - --env=ANDROID_ART_CACHE=/run/art-cache
 modules:
   - name: duckduckgo
     buildsystem: simple
